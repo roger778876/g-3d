@@ -3,7 +3,40 @@ from matrix import *
 from math import *
 
 def add_box( points, x, y, z, width, height, depth ):
-    pass
+    # front face points, clockwise
+    p0 = [x,y,z]
+    p1 = [x+width,y,z]
+    p2 = [x+width,y-height,z]
+    p3 = [x,y-height,z]
+    # back face points, clockwise
+    p4 = [x,y,z+depth]
+    p5 = [x+width,y,z+depth]
+    p6 = [x+width,y-height,z+depth]
+    p7 = [x,y-height,z+depth]
+    
+    # front face edges
+    add_edge_lists(points, p0, p1)
+    add_edge_lists(points, p1, p2)
+    add_edge_lists(points, p2, p3)
+    add_edge_lists(points, p3, p0)
+    # back face edges
+    add_edge_lists(points, p4, p5)
+    add_edge_lists(points, p5, p6)
+    add_edge_lists(points, p6, p7)
+    add_edge_lists(points, p7, p4)
+    # in between edges
+    add_edge_lists(points, p0, p4)
+    add_edge_lists(points, p1, p5)
+    add_edge_lists(points, p2, p6)
+    add_edge_lists(points, p3, p7)
+    
+    
+def add_edge_lists(points, point1, point2):
+    add_edge(points, point1[0], point1[1], point1[2], point2[0], point2[1], point2[2])
+    
+    
+    
+    
 
 def add_sphere( points, cx, cy, cz, r, step ):
     pass
