@@ -30,13 +30,9 @@ def add_box( points, x, y, z, width, height, depth ):
     add_edge_lists(points, p2, p6)
     add_edge_lists(points, p3, p7)
     
-    
 def add_edge_lists(points, point1, point2):
     add_edge(points, point1[0], point1[1], point1[2], point2[0], point2[1], point2[2])
-    
-    
-    
-    
+      
 
 def add_sphere( points, cx, cy, cz, r, step ):
     pass
